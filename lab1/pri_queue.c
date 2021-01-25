@@ -38,8 +38,17 @@ void PQ_insert(int priority, char * data) {
  * @return The highest priority Node.
  */
 Node_ptr_t PQ_delete() {
-  //FIX THIS
-    return NULL;
+    struct node *p = head;
+    head = head->next;
+    free(p);
+    if(head = NULL){
+        printf("Queue is empty");
+    }else{
+        struct node *p = head;
+        head = head->next;
+        //free(p);
+    }
+    return p;
 }
 
 /**

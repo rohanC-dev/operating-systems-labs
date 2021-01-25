@@ -53,7 +53,6 @@ int main(int argc, char** argv) {
     fprintf(stderr, "18th assert worked!\n");
     assert(head->next->next->next->next->priority == 0);
     fprintf(stderr, "19th assert worked!\n");
-
     return (EXIT_SUCCESS);
 }
 

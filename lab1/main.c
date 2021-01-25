@@ -53,6 +53,27 @@ int main(int argc, char** argv) {
     fprintf(stderr, "18th assert worked!\n");
     assert(head->next->next->next->next->priority == 0);
     fprintf(stderr, "19th assert worked!\n");
+    
+    //
+    // TEST CASE FOR PQ_DELETE() FUNCTION
+    //
+    struct node *q = PQ_delete();
+    head = PQ_get_head();
+    assert(head->priority == 5);
+    fprintf(stderr, "20th assert worked!\n");
+    assert(head->next->priority == 3);
+    fprintf(stderr, "21st assert worked!\n");
+    assert(head->next->next->priority == 2);
+    fprintf(stderr, "22nd assert worked!\n");
+    assert(head->next->next->next->priority == 0);
+    fprintf(stderr, "23rd assert worked!\n");
+    assert(q->data == "hij");
+    fprintf(stderr, "24th assert worked!\n");
+    assert(q->priority  == 7);
+    fprintf(stderr, "25th assert worked!\n");
+    
+    
+    
     return (EXIT_SUCCESS);
 }
 

@@ -12,18 +12,26 @@ static Node_ptr_t head = NULL;
 void PQ_insert(int priority, char * data) {
     struct node *t;
     t = (struct node*)malloc(sizeof(struct node));
-    if(t = NULL){
-        printf("Heap is full!");
+    t->priority = priority;
+    t->data = data;
+    t->next = NULL;
+    if(head == NULL){
+        head = t;
     }else{
-        t->priority = priority;
-        t->data = data;
-        t->next = NULL;
-        if(head == NULL){
+        struct node *p = head;
+        struct node *q = NULL;
+        if(priority < head->priority){
+          while(priority < p->priority){
+            q = p;
+            p = p->next;
+          }
+          q->next = t;
+          t->next = p;  
+        }else{
+            t->next = head;
             head = t;
         }
     }
-    
-    
 }
 /**
  * Delete and return the node with the highest priority.

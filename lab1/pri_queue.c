@@ -7,7 +7,7 @@ static Node_ptr_t head = NULL;
  * Insert a Node into a priority queue.
  * @param priority
  * @param data
- * @author YOUR NAME
+ * @author Rohan Chopra
  */
 void PQ_insert(int priority, char * data) {
     struct node *t;

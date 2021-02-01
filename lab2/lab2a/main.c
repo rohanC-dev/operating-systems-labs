@@ -29,17 +29,30 @@ int main(int argc, char* argv[]) {
         stringCount++;
     }
     char helloString[] = {'h', 'e', 'l', 'l', 'o'};
-    for(i = 0; i < 1; i++){
-        for(j = 0; j < strlen(strings[i]); i++){
-            if(strings[i][j] == helloString[j]){
-                printf("true");
+    char byeString[] = {'b', 'y', 'e'};
+    int changeGreeting = 0;
+    int changeName = 1;
+    for(i = 0; i < stringCount; i++){
+        for(j = 0; j < strlen(strings[i]); j++){
+            if(strings[i][j] == byeString[j]){
+                changeGreeting = 1;
+            }else if(strings[i][j] == helloString[j]){
+                //do nothing
+            }else{
+               changeGreeting = 0;
+               if(changeName == 1){
+                  person = strings[i];
+                  changeName = 0;
+               }
+               
+               break;
             }
         }
-//        if(strings[i] == helloString[i]){
-//            printf("true");
-//        }
-
+        if(changeGreeting == 1){
+            greeting = "bye";
+        }
     }
+    
 //    int len = strlen(argv[0]);
 //    char * last3 = argv[0] + len - 3; //last3 points to last 3 chars
 //    fprintf(stderr, "%s\n", argv[0]);
@@ -52,7 +65,7 @@ int main(int argc, char* argv[]) {
     
     //Add code to change 'greeting' if last 3 chars of command are 'bye'
   
-    //printf("%s %s\n", greeting, person);
+    printf("%s %s\n", greeting, person);
     
     //fprintf(stderr, "exit_code: %d\n", exit_code);
     
